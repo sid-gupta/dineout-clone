@@ -1,21 +1,31 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from "@react-navigation/native";
+import React from "react";
+import { StyleSheet } from "react-native";
+
+import initialRestaurants from "./app/data/restaurants";
+import initialCategories from "./app/data/categories";
+import initialOffers from "./app/data/offers";
+import DineoutContext from "./app/context/data";
+import AppNavigator from "./app/navigation/AppNavigator";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <DineoutContext.Provider
+      value={{
+        restaurants: initialRestaurants,
+        categories: initialCategories,
+        offers: initialOffers,
+      }}
+    >
+      <NavigationContainer>
+        <AppNavigator />
+      </NavigationContainer>
+    </DineoutContext.Provider>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#f8f4f4",
   },
 });
