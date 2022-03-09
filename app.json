@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "dineout",
+    "slug": "dineout",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
